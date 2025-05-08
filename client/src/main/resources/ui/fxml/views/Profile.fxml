@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane
+        fx:id="rootPane"
+        xmlns="http://javafx.com/javafx/17"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="dev.lysmux.collex.client.ui.controller.ProfileController"
+>
+    <VBox>
+        <stylesheets>
+            <URL value="@/ui/styles/common.css"/>
+            <URL value="@/ui/styles/profile.css"/>
+            <URL value="@/ui/styles/auth.css"/>
+        </stylesheets>
+
+        <fx:include source="../components/Header.fxml"/>
+        <VBox styleClass="container" VBox.vgrow="ALWAYS">
+            <Button onAction="#goToMain" styleClass="action-btn">
+                <graphic>
+                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@/ui/assets/home.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <HBox VBox.vgrow="ALWAYS">
+                <VBox styleClass="panel" HBox.hgrow="ALWAYS">
+                    <Label styleClass="title" text="%profile.stat.title"/>
+                    <GridPane>
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES"/>
+                            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES"/>
+                            <RowConstraints/>
+                        </rowConstraints>
+                        <Label styleClass="stat-label" text="%profile.stat.id"/>
+                        <Label fx:id="idLabel" styleClass="stat-value" GridPane.columnIndex="1"/>
+                        <Label styleClass="stat-label" text="%profile.stat.registerDate" GridPane.rowIndex="1"/>
+                        <Label fx:id="registrationDateLabel" styleClass="stat-value" GridPane.columnIndex="1"
+                               GridPane.rowIndex="1"/>
+                    </GridPane>
+                </VBox>
+
+                <Separator orientation="VERTICAL"/>
+
+                <VBox styleClass="panel">
+                    <Label styleClass="title" text="%profile.changePwd.title"/>
+                    <fx:include source="../components/PasswordField.fxml"/>
+                    <Button fx:id="changePwdBtn" alignment="TOP_LEFT" onAction="#changePassword" styleClass="action-btn"
+                            text="%profile.changePwd.changeBtn"/>
+                </VBox>
+                <styleClass>
+                    <String fx:value="container"/>
+                    <String fx:value="panel"/>
+                </styleClass>
+            </HBox>
+        </VBox>
+    </VBox>
+
+</StackPane>

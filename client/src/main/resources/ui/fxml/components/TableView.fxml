@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<TableView
+        fx:id="table"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="dev.lysmux.collex.client.ui.controller.component.TableViewController"
+>
+    <columns>
+        <TableColumn fx:id="idCol" text="%collection.id"/>
+        <TableColumn fx:id="ownerIdCol" text="%collection.ownerId"/>
+        <TableColumn fx:id="nameCol" text="%collection.name"/>
+        <TableColumn fx:id="minimalPointCol" text="%collection.minimalPoint"/>
+        <TableColumn fx:id="difficultyCol" text="%collection.difficulty"/>
+        <TableColumn fx:id="creationDateCol" text="%collection.creationDate"/>
+        <TableColumn fx:id="coordinatesXCol" text="%collection.coordinates.x"/>
+        <TableColumn fx:id="coordinatesYCol" text="%collection.coordinates.y"/>
+        <TableColumn fx:id="authorNameCol" text="%collection.author.name"/>
+        <TableColumn fx:id="authorBirthdayCol" text="%collection.author.birthday"/>
+        <TableColumn fx:id="authorWeightCol" text="%collection.author.weight"/>
+        <TableColumn fx:id="authorLocationXCol"
+                     text="%collection.author.location.x"/>
+        <TableColumn fx:id="authorLocationYCol"
+                     text="%collection.author.location.y"/>
+        <TableColumn fx:id="authorLocationNameCol"
+                     text="%collection.author.location.name"/>
+    </columns>
+    <columnResizePolicy>
+        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+    </columnResizePolicy>
+    <fx:define>
+        <ContextMenu fx:id="contextMenu">
+            <items>
+                <MenuItem fx:id="editItem" text="%collection.button.edit"/>
+                <MenuItem fx:id="removeItem" text="%collection.button.remove"/>
+                <MenuItem fx:id="removeGreater" text="%collection.button.removeGreater"/>
+                <MenuItem fx:id="removeLower" text="%collection.button.removeLower"/>
+            </items>
+        </ContextMenu>
+    </fx:define>
+</TableView>

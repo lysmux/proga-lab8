@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import java.net.URL?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane
+        fx:id="rootPane"
+        xmlns="http://javafx.com/javafx/17"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="dev.lysmux.collex.client.ui.controller.AuthController"
+>
+    <VBox>
+        <stylesheets>
+            <URL value="@/ui/styles/common.css"/>
+            <URL value="@/ui/styles/auth.css"/>
+        </stylesheets>
+
+        <fx:include source="../components/Header.fxml"/>
+        <VBox styleClass="container" VBox.vgrow="ALWAYS">
+            <Button onAction="#changeServer" styleClass="action-btn">
+                <graphic>
+                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@/ui/assets/settings.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <VBox styleClass="form">
+                <VBox>
+                    <HBox>
+                        <Label fx:id="loginTabLabel" styleClass="modeLabel" text="%auth.mode.login"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="registerTabLabel" styleClass="modeLabel" text="%auth.mode.register"/>
+                    </HBox>
+                    <Line fx:id="modeUnderline" endX="45.0" strokeWidth="3.0"/>
+                </VBox>
+
+                <fx:include source="../components/LoginField.fxml"/>
+                <fx:include source="../components/PasswordField.fxml"/>
+
+                <Label fx:id="invalidAuthDataLabel" styleClass="error-label"/>
+                <Button fx:id="authBtn" onAction="#auth" styleClass="action-btn" text="%auth.button.login"/>
+            </VBox>
+        </VBox>
+    </VBox>
+</StackPane>

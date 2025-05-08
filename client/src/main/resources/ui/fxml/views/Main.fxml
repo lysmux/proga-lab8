@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<StackPane
+        fx:id="rootPane"
+        xmlns="http://javafx.com/javafx/17"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="dev.lysmux.collex.client.ui.controller.MainController"
+>
+    <VBox>
+        <stylesheets>
+            <URL value="@/ui/styles/common.css"/>
+            <URL value="@/ui/styles/main.css"/>
+        </stylesheets>
+
+        <fx:include source="../components/Header.fxml"/>
+        <VBox styleClass="container" VBox.vgrow="ALWAYS">
+            <BorderPane>
+                <left>
+                    <CheckBox fx:id="displayOnlyMy" text="%main.displayOnlyMy"/>
+                </left>
+                <center>
+                    <MenuButton text="%otherCommands.action">
+                        <items>
+                            <MenuItem text="%otherCommands.addRandom" onAction="#addRandomBtnHandler"/>
+                            <MenuItem text="%otherCommands.addIfMax" onAction="#addIfMaxBtnHandler"/>
+                            <MenuItem text="%otherCommands.countGreaterThanMinimalPoint" onAction="#countGreaterThanMinimalPointBtnHandler"/>
+                        </items>
+                    </MenuButton>
+                </center>
+                <right>
+                    <Button fx:id="clearBtn" styleClass="action-btn">
+                        <graphic>
+                            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@../../assets/trash.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </right>
+            </BorderPane>
+            <StackPane VBox.vgrow="ALWAYS">
+                <TabPane tabClosingPolicy="UNAVAILABLE">
+                    <Tab text="%main.view.table">
+                        <BorderPane>
+                            <center>
+                                <fx:include fx:id="table" source="../components/TableView.fxml"/>
+                            </center>
+                        </BorderPane>
+                    </Tab>
+                    <Tab text="%main.view.graph">
+                        <BorderPane>
+                            <center>
+                                <fx:include fx:id="visual" source="../components/VisualView.fxml"/>
+                            </center>
+                        </BorderPane>
+                    </Tab>
+                </TabPane>
+                <Button fx:id="addBtn" styleClass="action-btn" text="+" StackPane.alignment="BOTTOM_RIGHT">
+                    <StackPane.margin>
+                        <Insets bottom="20.0" right="20.0"/>
+                    </StackPane.margin>
+                </Button>
+            </StackPane>
+        </VBox>
+    </VBox>
+    <fx:define>
+        <ContextMenu fx:id="contextMenu">
+            <items>
+                <MenuItem fx:id="editItem" text="%collection.button.edit"/>
+                <MenuItem fx:id="removeItem" text="%collection.button.remove"/>
+                <MenuItem fx:id="removeGreater" text="%collection.button.removeGreater"/>
+                <MenuItem fx:id="removeLower" text="%collection.button.removeLower"/>
+            </items>
+        </ContextMenu>
+    </fx:define>
+</StackPane>

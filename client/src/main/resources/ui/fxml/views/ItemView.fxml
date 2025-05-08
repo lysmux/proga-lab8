@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<StackPane fx:id="rootPane"
+           xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="dev.lysmux.collex.client.ui.controller.ItemViewController"
+>
+    <VBox styleClass="container">
+        <stylesheets>
+            <URL value="@/ui/styles/common.css"/>
+        </stylesheets>
+
+        <HBox styleClass="form">
+            <VBox HBox.hgrow="ALWAYS">
+                <Label text="%itemView.entity" styleClass="title"/>
+                <VBox>
+                    <Label text="%collection.name"/>
+                    <TextField fx:id="nameField"/>
+                </VBox>
+                <VBox>
+                    <Label text="%collection.minimalPoint"/>
+                    <TextField fx:id="minimalPointField"/>
+                </VBox>
+                <VBox>
+                    <Label text="%collection.difficulty"/>
+                    <ChoiceBox fx:id="difficultyChoice"/>
+                </VBox>
+                <VBox>
+                    <Label text="%collection.id"/>
+                    <TextField fx:id="id" disable="true"/>
+                </VBox>
+                <VBox>
+                    <Label text="%collection.ownerId"/>
+                    <TextField fx:id="ownerId" disable="true"/>
+                </VBox>
+                <VBox>
+                    <Label text="%collection.creationDate"/>
+                    <TextField fx:id="creationDate" disable="true"/>
+                </VBox>
+            </VBox>
+            <VBox HBox.hgrow="ALWAYS">
+                <Label text="%itemView.coordinates" styleClass="title"/>
+                <VBox>
+                    <Label text="%collection.coordinates.x"/>
+                    <TextField fx:id="coordinateXField"/>
+                </VBox>
+                <VBox>
+                    <Label text="%collection.coordinates.y"/>
+                    <TextField fx:id="coordinateYField"/>
+                </VBox>
+            </VBox>
+            <VBox HBox.hgrow="ALWAYS">
+                <Label text="%itemView.author" styleClass="title"/>
+                <VBox>
+                    <Label text="%collection.author.name"/>
+                    <TextField fx:id="authorNameField"/>
+                </VBox>
+                <VBox>
+                    <Label text="%collection.author.birthday"/>
+                    <DatePicker fx:id="authorBirthdayField"/>
+                </VBox>
+                <VBox>
+                    <Label text="%collection.author.weight"/>
+                    <TextField fx:id="authorWeightField"/>
+                </VBox>
+                <VBox>
+                    <Label text="%collection.author.location.x"/>
+                    <TextField fx:id="authorLocationX"/>
+                </VBox>
+                <VBox>
+                    <Label text="%collection.author.location.y"/>
+                    <TextField fx:id="authorLocationY"/>
+                </VBox>
+                <VBox>
+                    <Label text="%collection.author.location.name"/>
+                    <TextField fx:id="authorLocationName"/>
+                </VBox>
+            </VBox>
+        </HBox>
+        <Button fx:id="saveBtn" styleClass="action-btn" text="%collection.button.add"/>
+    </VBox>
+
+</StackPane>
